@@ -24,3 +24,13 @@ coreml_model = coremltools.converters.caffe.convert(
 coreml_model.save('FlowerClassifier.mlmodel')
 
 - You will find .mlmodel file in the same folder, Copy and paste it in your Xcode project folder and You're done 😎
+
+oh yeah and I forgot, you need physical device to run this app because it uses phone camera which is not supported in simulator. 
+Or you can just edit your code in ViewDiDLoad() method in ViewController.swift :
+from:
+	imagePicker.sourceType = .camera
+        imagePicker.allowsEditing = false
+        imagePicker.cameraCaptureMode = .photo
+to: 
+	imagePicker.sourceType = .photoLibrary
+So you can use Photo Library on simulator instead of using camera.
